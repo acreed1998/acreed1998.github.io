@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="Sleight of Hand (CSS).css">
+    <title>Sleight of Hand</title>
+    </head>
+    
+    <body>
+    <script src="Sleight of Hand (JS).js" type="text/javascript"></script>
+
+    <p id="skills">0</p>
+    <p id="crew">0</p>
+    <p id="contacts">0</p>
+
+    <h1 onclick="slidePanel('intro')">"Sleight of Hand"</h1>
+    <div id="intro" class="infocus">
+    <p class="narration">
+    YO! Yeah, you! Get over here, I don’t have a lot of time. Yes, I’m a talking magpie. No, you’re not hallucinating. I’m going to give you a blessing and I need you to <b>not</b> immediately get hit by a goddamn car like the last featherbrain. Anyway, I’m going to make it quick- there’s always supposed to be a certain number of “legendary thieves” in the world and it’s my job to give them their abilities. The previous girl to get my blessing finally died in her sleep after rockin’ 16 total operations, so now I gotta give it to someone else. The only catch is that you <b>have</b> to use your skills and connections (yeah, I’ll introduce you to some peeps) to steal other people’s stuff.
+    </p>
+    <p class="narration">
+    Hmm? Who was the previous thief? You wouldn’t know her – she spent the entire time making sure no one knew her identity and never spending what she stole. She lived in one of those shipping bin houses! Oh, did you mean the jagoff I tried doing this with ten minutes ago? Yeah no, he was just some bloke who happened to be in the right place at the right time, just like you; well, up until he suddenly wasn’t.
+    </p>
+    <p class="narration">
+    Believe it or not, the world needs thieves – and now it’s time for you to be one. Do you want to be rich? Notorious? Prove yourself and you might end up both.
+    </p>
+    <br>
+    </div>
+
+    <hr>
+    <h1 onclick="slidePanel('archetype')">Archetype</h1>
+    <div id="archetype" class="infocus">
+    <p class="narration">
+    How do you go about getting what you want? Choose <b>one</b>. Note that you can’t change this later in life, and we can’t proceed with the other choices until you pick. Choose carefully!
+    </p>
+    <table id="archetypeChoices">
+        <tr>
+            <td class="table_header">Archetype Name</td>
+            <td class="table_header">Description</td>
+            <td class="table_header">Sills</td>
+            <td class="table_header">Crew</td>
+            <td class="table_header">Contacts</td>
+            <td class="table_header">Free Skill</td>
+        </tr>
+        <tr>
+            <td class="archetypeName">
+                Master Thief
+            </td>
+            <td class="choice">
+                <p>
+                A classic! Comes with fine clothes, charming demeanor, and a smile captivating enough to make people overlook your smugness.                    
+                </p>
+                <p>
+                Choosing this type means you’re in it for the fame and challenge, not the money. You’ll end up keeping the treasures you steal in your own personal gallery and never think of selling them. You’re also a bit of a loner but hey, who wants to share the limelight?
+                </p>
+            </td>
+            <td class="skillPointsCollumn">
+                9
+            </td>
+            <td class="crewPointsCollumn">
+                0
+            </td>
+            <td class="contactPointsCollumn">
+                5
+            </td>
+            <td class="choice">
+                Cat Burglar
+            </td>
+            <td class="chooseArchetype"><button type="button" onClick="pickArchetype('archetype', 1)">
+                Purchase
+            </button></td>
+        </tr>
+        <tr>
+            <td class="archetypeName">
+                Modern Italian
+            </td>
+            <td class="choice">
+                <p>
+                The era of showmanship is over, and the best mask is anonymity. The trick is to have a well-executed plan that makes each member of the team “invisible” at all steps.
+                </p>
+                <p>
+                A good middle route for those who find the Master Thief silly and the Shock and Awe too crass, choosing this way means taking what you want and getting out before they realize who could have possibly done it. As a result, you never have any interest in the notoriety of your crimes.
+                </p>
+            </td>
+            <td class="skillPointsCollumn">
+                4
+            </td>
+            <td class="crewPointsCollumn">
+                2
+            </td>
+            <td class="contactPointsCollumn">
+                3
+            </td>
+            <td class="choice">
+                Stealth
+            </td>
+            <td class="chooseArchetype"><button type="button" onClick="pickArchetype('archetype', 2)">
+                Purchase
+            </button></td>
+        </tr>
+        <tr>
+            <td class="archetypeName">
+                Shock and Awe
+            </td>
+            <td class="choice">
+                <p>
+                People are surprisingly compliant when you have a shotgun pointed in their direction – and walls too, with enough explosives.
+                </p>
+                <p>
+                Blitzkrieg is an apt term – you’re just here for the money. You have a dozen different ways to get rid of the barriers between you and it, though most result in mass mayhem. Your style leaves too much risk to go after anything other than bonds or gold, though. You’re also a lot more reliant on having a well-balanced crew.
+                </p>
+            </td>
+            <td class="skillPointsCollumn">
+                2
+            </td>
+            <td class="crewPointsCollumn">
+                3
+            </td>
+            <td class="contactPointsCollumn">
+                3
+            </td>
+            <td class="choice">
+                Firearms Expert
+            </td>
+            <td class="chooseArchetype"><button type="button" onClick="pickArchetype('archetype', 3)">
+                Purchase
+            </button></td>
+        </tr>
+    </table>
+    </div>
+
+    <hr>
+    <h1 onclick="slidePanel('targets')">Targets</h1>
+    <div id="targets" class="infocus">
+    <p class="narration">
+    What do you want to go after? Choose <b>three</b>. (If you chose <b>Shock and Awe</b> as your archetype, two of your choices are automatically taken as bonds and gold.)
+    </p>
+    <table id="targetChoices">
+        <tr>
+            <td class="notATarget" onclick="is_taken('targets', 0, 0)">
+                <p class="targetTitle" id="gemstones"><b>Gemstones</b></p>
+                <p>Some people have apples in their eyes. You have the <b>Millennium Star</b> in yours.</p>
+            </td>
+            <td class="notATarget" onclick="is_taken('targets', 0, 1)">
+                <p class="targetTitle" id="paintings"><b>Paintings</b></p>
+                <p>Cumbersome, but valuable.</p>
+            </td>
+            <td class="notATarget" onclick="is_taken('targets', 0, 2)">
+                <p class="targetTitle" id="cars"><b>Cars</b></p>
+                <p>Of course, you <i>could</i> go for a Bugatti, but never look down on the classics.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="notATarget" onclick="is_taken('targets', 1, 0)">
+                <p class="targetTitle" id="bonds"><b>Bonds</b></p>
+                <p>Cash is okay, but why steal something that’s just going to deprecate. You want value in the long term.</p>
+            </td>
+            <td class="notATarget" onclick="is_taken('targets', 1, 1)">
+                <p class="targetTitle" id="jewelry"><b>Jewelry</b></p>
+                <p>Once upon a time, the greatest challenge was to steal a King’s crown. Heck, it’s probably even harder now!</p>
+            </td>
+            <td class="notATarget" onclick="is_taken('targets', 1, 2)">
+                <p class="targetTitle" id="information"><b>Information</b></p>
+                <p>Spies are just a specialized thief.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="notATarget" onclick="is_taken('targets', 2, 0)">
+                <p class="targetTitle" id="gold"><b>Gold</b></p>
+                <p>You know, everyone does a heist for these heavy little bastards once, and never do it again.</p>
+            </td>
+            <td class="notATarget" onclick="is_taken('targets', 2, 1)">
+                <p class="targetTitle" id="data"><b>Data</b></p>
+                <p>You can only rely on hackers for so much. Sometimes it’s easier to just waltz in somewhere and just download what you need.</p>
+            </td>
+            <td class="notATarget" onclick="is_taken('targets', 2, 2)">
+                <p class="targetTitle" id="artifact"><b>Artifacts</b></p>
+                <p>It belongs in a (different) museum!</p>
+            </td>
+        </tr>                
+    </table>
+    </body>
+    
+</html>

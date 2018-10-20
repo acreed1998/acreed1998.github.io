@@ -1,0 +1,43 @@
+.nodisplay {
+	display: none;
+}
+
+.infocus {
+	display: block;
+}
+
+.aTarget {
+	background-color: #99dd55;
+}
+
+.notATarget {
+	background-color: #FFFFFF;
+}
+
+.saaTarget {
+	background-color: #FEDC56;
+}
+
+#skills {
+	position: fixed;
+	color: red;
+	right: 220px;
+	bottom: 30px;
+	font-weight: bold;
+}
+
+#crew {
+	position: fixed;
+	color: red;
+	right: 120px;
+	bottom: 30px;
+	font-weight: bold;
+}
+
+#contacts {
+	position: fixed;
+	color: red;
+	right: 20px;
+    bottom: 30px; 
+	font-weight: bold;
+}

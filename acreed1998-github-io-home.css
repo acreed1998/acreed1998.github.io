@@ -1,0 +1,7 @@
+.nodisplay {
+	display: none;
+}
+
+.infocus {
+	display: block;
+}
