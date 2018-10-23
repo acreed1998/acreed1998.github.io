@@ -35,6 +35,7 @@ function isObject(value) {
     // YOUR CODE BELOW HERE //
     if (Object.prototype.toString.call(value) == Object.prototype.toString.call({})) {
         return true;
+        
     }
     return false;
     
