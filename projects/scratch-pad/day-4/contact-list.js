@@ -39,10 +39,10 @@
 
 function makeContact(id, nameFirst, nameLast) {
     var object = {
-        id: id,
-        nameFirst: nameFirst,
-        nameLast: nameLast
-    }
+        'id': id,
+        'nameFirst': nameFirst,
+        'nameLast': nameLast
+    };
     return object;
 } 
 
