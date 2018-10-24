@@ -78,8 +78,10 @@ function forcedSaaTargets(tableName, rowNum, cellNum) {
 function is_taken(tableName, rowNum, cellNum) {
     var targetCounter = countTakenTargets(tableName);
     var cell = document.getElementById(tableName).getElementsByTagName("tr")[rowNum].getElementsByTagName("td")[cellNum];
+    
     console.log(targetCounter);
     if (targetCounter < 3 || targetCounter - 1 == 2) {
+        
         if (cell.className != "aTarget") {
             cell.className = "aTarget";
             return 1;
@@ -91,7 +93,7 @@ function is_taken(tableName, rowNum, cellNum) {
 }
 
 function countTakenTargets(tableName) {
-    var num = 0;
+    var num = 1;
     var i;
     var j;
     for (i = 0; i < 3; i++) {
