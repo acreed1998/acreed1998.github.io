@@ -51,16 +51,56 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
-    
+    var contact = [];
+
     return {
         // we implemented the length api for you //
+        addContact: function(id, nameFirst, nameLast) {
+          var object = {
+            'id': id,
+            'nameFirst': nameFirst,
+            'nameLast': nameLast
+          };
+          contact.push(object.id);
+        },
         length: function() {
-            return contacts.length;
+            return contact.length;
+        }, 
+        findContact: function(misc) {
+          var i;
+          misc = misc.split(" ");
+          for (i = 0; i < contact.length; i++) {
+            if (contact[i].nameFirst == misc[0] && contact[i].nameLast == misc[1]) {
+              var found = contact[i];
+              return found;
+            }
+          }
+        },
+        removeContact: function(found) {
+          var j;
+          for (j = 0; j < contact.length; j++) {
+            if (contact[j] == found) {
+              contact.splice(j, 1);
+            }
+          }
+        },
+        printAllContactNames: function() {
+            var k;
+            var names = [];
+            var j = 0;
+            for (k = 0; k < contact.length; k++) {
+              names.push(contact[k]['nameFirst'] + ' ' + contact[k]['nameLast']);
+              names.splice(j + 1, 0, "\n");
+              j += 2;
+            }
+            if (names[names.length - 1] == "\n"){
+              names.pop();
+            }
+            names = names.join("");
+            return names;
         }
-    }
+    };
 }
-
 
 
 
