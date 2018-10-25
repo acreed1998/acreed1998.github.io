@@ -253,9 +253,24 @@
                 <p class="skillTitle" id="stamina"><b>Stamina</b></p>
                 <p>Grants a large pool of stamina to draw from, because sometimes you just have to run. This will allow you to be able to run for at least a full ten kilometers without losing your breath – this distance is increased if you’re not carrying gear or treasure. Pairs well with Cat Burglar, what with all the parkour.</p>
             </td>
-            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 4, 2)">
+            <td class="noSkill">
                 <p class="skillTitle" id="wellConnected"><b>Well-Connected</b></p>
                 <p>Maybe you didn’t have as many skills as everyone else, but that’s because you know who to go to for what. Take either an additional crew member or two contacts.</p>
+                <table>
+
+                    <tr>
+                        <td><p>Crew</p></td>
+                        <td><button type="button" onclick="giveExtra()">+</button></td>
+                        <td><p id="extraCrewCont">0</p></td>
+                        <td><button type="button" onclick="takeExtra()">-</button></td>
+                    </tr>
+                    <tr>
+                        <td><p>Contacts</p></td>
+                        <td><button type="button" onclick="giveExtra()">+</button></td>
+                        <td><p id="extraCrewCont">0</p></td>
+                        <td><button type="button" onclick="takeExtra()">-</button></td>
+                    </tr>
+                </table>
             </td>                        
         </tr>
     </table>
