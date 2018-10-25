@@ -137,48 +137,129 @@
     </p>
     <table id="targetChoices">
         <tr>
-            <td class="notATarget" onclick="is_taken('targets', 0, 0)">
+            <td class="notATarget" onclick="chooseTarget('targets', 0, 0)">
                 <p class="targetTitle" id="gemstones"><b>Gemstones</b></p>
                 <p>Some people have apples in their eyes. You have the <b>Millennium Star</b> in yours.</p>
             </td>
-            <td class="notATarget" onclick="is_taken('targets', 0, 1)">
+            <td class="notATarget" onclick="chooseTarget('targets', 0, 1)">
                 <p class="targetTitle" id="paintings"><b>Paintings</b></p>
                 <p>Cumbersome, but valuable.</p>
             </td>
-            <td class="notATarget" onclick="is_taken('targets', 0, 2)">
+            <td class="notATarget" onclick="chooseTarget('targets', 0, 2)">
                 <p class="targetTitle" id="cars"><b>Cars</b></p>
                 <p>Of course, you <i>could</i> go for a Bugatti, but never look down on the classics.</p>
             </td>
         </tr>
         <tr>
-            <td class="notATarget" onclick="is_taken('targets', 1, 0)">
+            <td class="notATarget" onclick="chooseTarget('targets', 1, 0)">
                 <p class="targetTitle" id="bonds"><b>Bonds</b></p>
                 <p>Cash is okay, but why steal something that’s just going to deprecate. You want value in the long term.</p>
             </td>
-            <td class="notATarget" onclick="is_taken('targets', 1, 1)">
+            <td class="notATarget" onclick="chooseTarget('targets', 1, 1)">
                 <p class="targetTitle" id="jewelry"><b>Jewelry</b></p>
                 <p>Once upon a time, the greatest challenge was to steal a King’s crown. Heck, it’s probably even harder now!</p>
             </td>
-            <td class="notATarget" onclick="is_taken('targets', 1, 2)">
+            <td class="notATarget" onclick="chooseTarget('targets', 1, 2)">
                 <p class="targetTitle" id="information"><b>Information</b></p>
                 <p>Spies are just a specialized thief.</p>
             </td>
         </tr>
         <tr>
-            <td class="notATarget" onclick="is_taken('targets', 2, 0)">
+            <td class="notATarget" onclick="chooseTarget('targets', 2, 0)">
                 <p class="targetTitle" id="gold"><b>Gold</b></p>
                 <p>You know, everyone does a heist for these heavy little bastards once, and never do it again.</p>
             </td>
-            <td class="notATarget" onclick="is_taken('targets', 2, 1)">
+            <td class="notATarget" onclick="chooseTarget('targets', 2, 1)">
                 <p class="targetTitle" id="data"><b>Data</b></p>
                 <p>You can only rely on hackers for so much. Sometimes it’s easier to just waltz in somewhere and just download what you need.</p>
             </td>
-            <td class="notATarget" onclick="is_taken('targets', 2, 2)">
+            <td class="notATarget" onclick="chooseTarget('targets', 2, 2)">
                 <p class="targetTitle" id="artifact"><b>Artifacts</b></p>
                 <p>It belongs in a (different) museum!</p>
             </td>
         </tr>                
     </table>
+    </div>
+
+    <hr>
+    <h1 onclick="slidePanel('skillsToChoose')">Skills</h1>
+    <div id="skillsToChoose" class="infocus">
+    <p class="narration">
+    What you bring to the table. I’ll imbue the skills you pick in you so that you instantly become proficient in them. Because of the way it works, you can’t pick the same skill more than once, even if it would make sense to do so.
+    </p>
+    <table id="skillChoices">
+        <tr>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 0, 0)">
+                <p class="skillTitle" id="catBurglar"><b>Cat Burglar</b></p>
+                <p>Cat-like reflexes! Swift-yet-silent footsteps! Amazing purr-kour! Also comes with a set of cat ears and a tail if you’re into that sort of thing.</p>
+            </td>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 0, 1)">
+                <p class="skillTitle" id="silverTongue"><b>Silver Tongue</b></p>
+                <p>Into social engineering? Whether you need to convincingly lie that you really did “just forget your badge” or spindle a story about how it’s your turn to “take the painting to restoration”, this’ll help.</p>
+            </td>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 0, 2)">
+                <p class="skillTitle" id="pickpocketing"><b>Pickpocketing</b></p>
+                <p>Some people think they’re safe if they put their wallets in their front pocket. You assure them that they are not. Also allows you to “putpocket”, which may come in handy.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 1, 0)">
+                <p class="skillTitle" id="hardiness"><b>Hardiness</b></p>
+                <p>No good heist story went without problems. If you get injured without dying outright, you’ll stay on your feet long enough to patch yourself up or at least to get to extraction. Getting shot twice is pushing it, so wear body armor if you’re going loud!</p>
+            </td>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 1, 1)">
+                <p class="skillTitle" id="disguise"><b>Disguise</b></p>
+                <p>Only amateurs think this means makeup and a uniform. Masters know it means method acting and improvisation; pairs quite well with Silver Tongue.</p>
+            </td>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 1, 2)">
+                <p class="skillTitle" id="driver"><b>Driver</b></p>
+                <p>For you, the “five-minute window” is how long you need to ensure you’ve shaken the police off your tail. Also teaches you how to drive a stick shift, because no good chase scene was ever filmed in automatic.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 2, 0)">
+                <p class="skillTitle" id="firearmsExpert"><b>Firearms Expert</b></p>
+                <p>Maybe you’re from the States, or perhaps you spent your childhood doing thing you’d really rather not talk about. Regardless, pistols, rifles, and shotguns feel familiar in your hands, allowing you to handle them at a typical soldier level.</p>
+            </td>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 2, 1)">
+                <p class="skillTitle" id="explosivesExpert"><b>Explosives Expert</b></p>
+                <p>You know how to apply and use explosives ranging from TNT to C4 – if you can get your hands on them. Also gives you rudimentary knowledge of how to make and use IEDs, but make sure you don’t end up on <i>another</i> watchlist.</p>
+            </td>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 2, 2)">
+                <p class="skillTitle" id="stealth"><b>Stealth</b></p>
+                <p>Stealth isn’t about not being seen; it’s about not being noticed. Beyond just storybook sneaking around, you also know how to blend into a crowd and emulate the immediate area’s gestures and customs to match expectations.</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 3, 0)">
+                <p class="skillTitle" id="cqcExpert"><b>CQC Expert</b></p>
+                <p>Pick two martial arts that involve either no weapon or small, concealable weapons (such as a dagger or cestus). You gain 3rd-dan proficiency (two ranks above blackbelt) in them.</p>
+            </td>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 3, 1)">
+                <p class="skillTitle" id="subterfuge"><b>Subterfuge</b></p>
+                <p>You sure don’t know how to make things, but breaking them is more fun anyway. You gain an intuitive sense for disruption and destruction. This is a catch-all that ranges from how to shut off the cameras at a fuse box to how to use ECM jammers to even guessing the structural weak points of buildings.</p>
+            </td>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 3, 2)">
+                <p class="skillTitle" id="knowItAll"><b>Know-it-All</b></p>
+                <p>Pick two types of targets, regardless if you chose them as your own to go after. You become an information specialist in those categories. This allows you to appraise their value, determine if they are fake, keep up in conversations with other specialists (i.e. curators), etc.</p>
+            </td>                                    
+        </tr>
+        <tr>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 4, 0)">
+                <p class="skillTitle" id="tactician"><b>Tactician</b></p>
+                <p>When you plan, the pieces just fall into place and you make doubly sure to remove all traces of chance.  Not only are the chances of hiccups occurring lessened, but you can also adapt on the fly when encountering something truly unexpected. Also has the side-effect of your crew treating you more like a leader.</p>
+            </td>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 4, 1)">
+                <p class="skillTitle" id="stamina"><b>Stamina</b></p>
+                <p>Grants a large pool of stamina to draw from, because sometimes you just have to run. This will allow you to be able to run for at least a full ten kilometers without losing your breath – this distance is increased if you’re not carrying gear or treasure. Pairs well with Cat Burglar, what with all the parkour.</p>
+            </td>
+            <td class="noSkill" onclick="chooseSkill('skillsToChoose', 4, 2)">
+                <p class="skillTitle" id="wellConnected"><b>Well-Connected</b></p>
+                <p>Maybe you didn’t have as many skills as everyone else, but that’s because you know who to go to for what. Take either an additional crew member or two contacts.</p>
+            </td>                        
+        </tr>
+    </table>
+    </div>
     </body>
     
 </html>
