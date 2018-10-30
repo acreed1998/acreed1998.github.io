@@ -1,10 +1,11 @@
+// Create Objects that contain archtype parameters //
 var masterThief = {
     skillPoints: 9,
     crewPoints: 0,
     contactPoints: 5
 };
 
-var moderItalian = {
+var modernItalian = {
     skillPoints: 4,
     crewPoints: 2,
     contactPoints: 3
@@ -16,18 +17,22 @@ var shockAndAwe = {
     contactPoints: 3
 };
 
+// Var to store the choice of archetype
 var chosenArchetype;
 
+
+// Variables for target modification and storage
 var chosenTargets = [];
 var targetCounter;
 var targetCellLog = [];
 
+// Variables for skill modification and storage
 var changingSkillCounter;
 var chosenSkills;
 var skillCounter;
 var skillCellLog = [];
-
-
+var skillWellConnectedLogCrew = 0;
+var skillWellConnectedLogCont = 0;
 function getSkillPoints(row) {
     for (var i = 0; i < row.cells.length; i++) {
         if(row.cells[i].className == "skillPointsCollumn") {
@@ -206,7 +211,7 @@ function chooseSkill(tableName, rowNum, cellNum) {
         if (chosenArchetype == "Master Thief") {
             chosenSkills = masterThief.skillPoints;
         } else if (chosenArchetype == "Modern Italian") {
-            chosenSkills = moderItalian.skillPoints;
+            chosenSkills = modernItalian.skillPoints;
         } else {
             chosenSkills = shockAndAwe.skillPoints;
         }
@@ -226,6 +231,8 @@ function chooseSkill(tableName, rowNum, cellNum) {
             }
             skillCellLog = [];
             justChanged = true;
+            takeExtraCrew(true);
+            takeExtraContacts(true);
             skillPoints = chosenSkills;
             skillPointsString.innerHTML = skillPoints.toString();
         }
@@ -263,9 +270,192 @@ function countTakenSkills(tableName) {
 
 }
 
-function giveExtra() {
-    skillPoints -= 2;
+function giveExtraCrew(clearExtraFromSkills) {
+    if (chosenArchetype == "Master Thief" || chosenArchetype == "Modern Italian" || chosenArchetype == "Shock and Awe") {
+        console.log('All good!')
+    } else {
+        return ('Pick an Archetype');
+    }
 
+    var takenExtraCrewString = document.getElementById("extraCrewForSkills");
+    var takenExtraCrew = parseInt(takenExtraCrewString.innerHTML);
+
+    var skillPointsString = document.getElementById("skills");
+    var skillPoints = parseInt(skillPointsString.innerHTML);
+
+    var crewPointsString = document.getElementById("crew");
+    var crewPoints = parseInt(crewPointsString.innerHTML);
+
+    var cell = document.getElementById("wellConnectedCell");
+
+    if (takenExtraCrew + 1 > 1 || skillWellConnectedLogCont > 0) {
+        return "TOO HIGH!!!";
+    }
+
+    skillPoints--;
+    crewPoints++;
+    takenExtraCrew++;
+    skillWellConnectedLogCrew++;
+
+    if (takenExtraCrew > 0) {
+        cell.className = "gotSkills";
+    }
+
+    skillPointsString.innerHTML = skillPoints.toString();
+    crewPointsString.innerHTML = crewPoints.toString();
+    takenExtraCrewString.innerHTML = takenExtraCrew.toString();
+
+}
+
+function takeExtraCrew(clearExtraFromSkills) {
+
+    if (chosenArchetype == "Master Thief" || chosenArchetype == "Modern Italian" || chosenArchetype == "Shock and Awe") {
+        console.log('All good!')
+    } else {
+        return ('Pick an Archetype');
+    }
+
+    var takenExtraCrewString = document.getElementById("extraCrewForSkills");
+    var takenExtraCrew = parseInt(takenExtraCrewString.innerHTML);
+
+    var skillPointsString = document.getElementById("skills");
+    var skillPoints = parseInt(skillPointsString.innerHTML);
+
+    var crewPointsString = document.getElementById("crew");
+    var crewPoints = parseInt(crewPointsString.innerHTML);
+
+    var cell = document.getElementById("wellConnectedCell");
+
+    if (takenExtraCrew - 1 < 0) {
+        return "TOO LOW!";
+    }
+
+    if (clearExtraFromSkills == true) {
+        cell.className = "noSkill";
+        takenExtraCrew = 0;
+        if (chosenArchetype == "Master Thief") {
+            skillPoints = masterThief.skillPoints;
+            crewPoints = masterThief.crewPoints;
+        } else if (chosenArchetype == "Modern Italian") {
+            skillPoints = modernItalian.skillPoints;
+            crewPoints = modernItalian.crewPoints;
+        } else {
+            skillPoints = shockAndAwe.skillPoints;
+            crewPoints = shockAndAwe.crewPoints;
+        }
+
+        skillWellConnectedLogCrew = 0;
+        crewPointsString.innerHTML = crewPoints.toString();
+        takenExtraCrewString.innerHTML = takenExtraCrew.toString();
+
+        return "Done";
+    }
+
+    skillPoints++;
+    crewPoints--;
+    takenExtraCrew--;
+    skillWellConnectedLogCrew--;
+    
+    if (takenExtraCrew <= 0) {
+        cell.className = "noSkill";
+    }
+    skillPointsString.innerHTML = skillPoints.toString();
+    crewPointsString.innerHTML = crewPoints.toString();
+    takenExtraCrewString.innerHTML = takenExtraCrew.toString();
+}
+
+function giveExtraContacts(clearExtraFromSkills) {
+    if (chosenArchetype == "Master Thief" || chosenArchetype == "Modern Italian" || chosenArchetype == "Shock and Awe") {
+        console.log('All good!')
+    } else {
+        return ('Pick an Archetype');
+    }
+
+    var takenExtraContString = document.getElementById("extraContForSkills");
+    var takenExtraCont = parseInt(takenExtraContString.innerHTML);
+
+    var skillPointsString = document.getElementById("skills");
+    var skillPoints = parseInt(skillPointsString.innerHTML);
+
+    var contactPointsString = document.getElementById("contacts");
+    var contactPoints = parseInt(contactPointsString.innerHTML);
+
+    var cell = document.getElementById("wellConnectedCell");
+
+    if (takenExtraCont + 1 > 2 || skillWellConnectedLogCrew > 0) {
+        return "TOO HIGH!!!";
+    }
+
+    skillPoints--;
+    contactPoints += 2;
+    takenExtraCont += 2;
+    skillWellConnectedLogCont++;
+
+    if (takenExtraCont > 0) {
+        cell.className = "gotSkills";
+    }
+
+    skillPointsString.innerHTML = skillPoints.toString();
+    contactPointsString.innerHTML = contactPoints.toString();
+    takenExtraContString.innerHTML = takenExtraCont.toString();
+
+}
+
+function takeExtraContacts(clearExtraFromSkills) {
+    if (chosenArchetype == "Master Thief" || chosenArchetype == "Modern Italian" || chosenArchetype == "Shock and Awe") {
+        console.log('All good!')
+    } else {
+        return ('Pick an Archetype');
+    }
+
+    var takenExtraContString = document.getElementById("extraContForSkills");
+    var takenExtraCont = parseInt(takenExtraContString.innerHTML);
+
+    var skillPointsString = document.getElementById("skills");
+    var skillPoints = parseInt(skillPointsString.innerHTML);
+
+    var contactPointsString = document.getElementById("contacts");
+    var contactPoints = parseInt(contactPointsString.innerHTML);
+
+    var cell = document.getElementById("wellConnectedCell");
+
+    if (takenExtraCont - 1 < 0) {
+        return "TOO LOW!";
+    }
+
+    if (clearExtraFromSkills == true) {
+        cell.className = "noSkill";
+        takenExtraCont = 0;
+        if (chosenArchetype == "Master Thief") {
+            skillPoints = masterThief.skillPoints;
+            contactPoints = masterThief.contactPoints;
+        } else if (chosenArchetype == "Modern Italian") {
+            skillPoints = modernItalian.skillPoints;
+            contactPoints = modernItalian.contactPoints;
+        } else {
+            skillPoints = shockAndAwe.skillPoints;
+            contactPoints = shockAndAwe.contactPoints;
+        }
+
+        skillWellConnectedLogCont = 0;
+        contactPointsString.innerHTML = contactPoints.toString();
+        takenExtraContString.innerHTML = takenExtraCont.toString();
+        
+        return "Done";
+    }
+
+    skillPoints++;
+    contactPoints -= 2;
+    takenExtraCont -= 2;
+    skillWellConnectedLogCont--
+
+    if (takenExtraCont <= 0) {
+        cell.className = "noSkill";
+    }
+
+    skillPointsString.innerHTML = skillPoints.toString();
+    contactPointsString.innerHTML = contactPoints.toString();
+    takenExtraContString.innerHTML = takenExtraCont.toString();
 }
 
 function slidePanel(id) {

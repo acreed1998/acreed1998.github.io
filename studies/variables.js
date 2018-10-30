@@ -33,3 +33,36 @@ console.log(myName); // prints => bob
 var myVariable = 1;
 var myVariable = true;
 myVariable = "someString";
+
+// Constants are containers who's value can never be changed once it has been declared //
+
+// They are created using the keyword const and must be assigned a value immediately. //
+
+const birthDate = 02241998;
+console.log(birthDate);
+birthDate = 24;
+
+// ALL CAPS are recommended for constant names //
+
+// Let //
+
+// Not hoiseted to their code block //
+
+// Limits the variable's scope to the block it's declared in. //
+
+console.log(letThemEatCake);
+
+if (birthDate === 02241998) {
+    let letThemEatCake = 'Happy Birthday!!!';
+    console.log(letThemEatCake);
+}
+
+console.log(letThemEatCake);
+
+
+
+
+
+
+
+
