@@ -56,3 +56,21 @@ function reverseArray(arr) {
 // Lists
 
 function arrayToLists(arr) {
+    if (arr.length === 1) {
+        return {value: arr[0], rest: null};
+    }
+    else {
+        return {value: arr[0], rest: arrayToLists(arr.slice(1))};
+    }
+}
+
+function listToArray(list) {
+    if (list.rest === null) {
+        return [list.value];
+    }
+    else {
+        return [list.value].concat(listToArray(list.rest));
+    }
+}
+
+// Deep Equal
