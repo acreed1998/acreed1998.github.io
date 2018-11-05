@@ -16,10 +16,12 @@
 
 .gotSkills {
 	background-color: #99dd55;
+	border: 1px solid black;
 }
 
 .noSkill {
 	background-color: #FFFFFF;
+	border: 1px solid black;
 }
 
 .saaTarget {
@@ -28,9 +30,11 @@
 
 .freeSkill {
 	background-color: #FEDC56;
+	border: 1px solid black;
 }
 
 .notCrew {
+	border: 1px solid black;
 }
 
 #skills {

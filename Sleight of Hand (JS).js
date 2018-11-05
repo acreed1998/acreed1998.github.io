@@ -260,9 +260,6 @@ function chooseSkill(tableName, rowNum, cellNum) {
                 }
             }
             justChanged = true;
-            
-            takeExtraCrew(true);
-            takeExtraContacts(true);
         }
         if (cell.className != "gotSkills" && justChanged == false && cell.className != "freeSkill") {
             cell.className = "gotSkills";
@@ -300,7 +297,7 @@ function countTakenSkills(tableName) {
 
 }
 
-function giveExtraCrew(clearExtraFromSkills) {
+function giveExtraCrew() {
     if (chosenArchetype == "Master Thief" || chosenArchetype == "Modern Italian" || chosenArchetype == "Shock and Awe") {
         console.log('All good!')
     } else {
@@ -318,7 +315,7 @@ function giveExtraCrew(clearExtraFromSkills) {
 
     var cell = document.getElementById("wellConnectedCell");
 
-    if (takenExtraCrew + 1 > 1 || skillWellConnectedLogCont > 0) {
+    if (takenExtraCrew + 1 > 1 || skillWellConnectedLogCont > 0 || skillPoints === 0) {
         return "TOO HIGH!!!";
     }
 
@@ -394,7 +391,7 @@ function takeExtraCrew(clearExtraFromSkills) {
     takenExtraCrewString.innerHTML = takenExtraCrew.toString();
 }
 
-function giveExtraContacts(clearExtraFromSkills) {
+function giveExtraContacts() {
     if (chosenArchetype == "Master Thief" || chosenArchetype == "Modern Italian" || chosenArchetype == "Shock and Awe") {
         console.log('All good!')
     } else {
@@ -412,7 +409,7 @@ function giveExtraContacts(clearExtraFromSkills) {
 
     var cell = document.getElementById("wellConnectedCell");
 
-    if (takenExtraCont + 1 > 2 || skillWellConnectedLogCrew > 0) {
+    if (takenExtraCont + 1 > 2 || skillWellConnectedLogCrew > 0 || skillPoints === 0) {
         return "TOO HIGH!!!";
     }
 
