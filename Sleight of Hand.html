@@ -37,7 +37,7 @@
         <tr>
             <td class="table_header">Archetype Name</td>
             <td class="table_header">Description</td>
-            <td class="table_header">Sills</td>
+            <td class="table_header">Skills</td>
             <td class="table_header">Crew</td>
             <td class="table_header">Contacts</td>
             <td class="table_header">Free Skill</td>
@@ -273,6 +273,75 @@
             </td>                        
         </tr>
     </table>
+    </div>
+
+    <hr>
+    <h1 onclick="slidePanel('crewToChoose')">Crew</h1>
+    <div id="crewToChoose" class="infocus">
+    <p class="narration">
+    Your crew are the people who are going on heists with you. It’s probably a wise idea to pick those who complement your skills and your preferred style, but you can pick a real oddball if you like. Some even have skills the blessing can’t give, so check them all out! Oh, one more thing – if you plan to be the leader in the crew, you’re going to have to earn their trust. This is easier if you are a <b>Tactician</b> making the plans. (If you chose <b>Master Thief</b> as your archetype, you don’t get any crew unless you got them from elsewhere, you loner.)
+    </p>
+    <table id="crewChoices">
+        <tr>
+            <td class="notCrew" onclick="chooseCrew('crewToChoose', 0, 0)">
+                <p class="crewName" id="Cora">Cora</p>
+                <p>Cora’s story is something you’ve heard time and time again – a little introverted girl escapes into books to avoid her life and ends up wanting to be like the heroes in her stories. Problem: she only read either spaghetti westerns or spy novels and somehow got it in her head that she wanted to be a cowboy spy, with the attire to match. Luckily, Cora’s father is a diplomat and was able to get her the training she needed to become a proper infiltrator, but she ended up flunking out on the simple virtue of being “too suspicious”. Since then she’s been a bit of a wanderer, doing jobs both above and below the table to get by.</p>
+                <p>Considering she spent her time growing up in Romania as a British diplomat’s daughter, one has to wonder just how in the world she became <i>that</i> fascinated with cowboys. If you can play along with her persona and take her on holiday somewhere in the States where they do rodeos and all that jazz, you’ll earn a friend for life and she’ll respect you as a leader.</p>
+                <p>Skills: <b>Subterfuge, Firearms Expertise, CQC Expert</b></p>
+            </td>
+            <td class="notCrew" onclick="chooseCrew('crewToChoose', 0, 1)">
+                <p class="crewName" id="Max">Max</p>
+                <p>You know, starting with two oddballs probably wasn’t the best choice. Yeah, Max likes to wear those cat ears and maid collar everywhere, and treats it like it’s completely normal. I’m not sure if he cares that people look at him weirdly. He’s a damn good hacker though and can be counted on to get you past electronic door locks with ease. Don’t expect him to wield a gun; the loud noises startle him. The one time he tried, the handgun went completely out of his hands and fell on his toes. Outside of work you can find him in his apartment which has no real furniture but is completely filled with blankets, pillows, and oversized stuffed animals.</p>
+                <p>Max really doesn’t want to hurt anybody. If your plans center around eliminating guards and police, expect multiple disagreements from him and eventually to just disappear on you one day, probably during the heist you need him most. He’s a naturally subservient fellow; he’ll naturally look to you as the leader as long as no blood is shed and you are fair and friendly with the team.</p>
+                <p>Skills: <b>Hacking, Know-it-all</b> (Data)</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="notCrew" onclick="chooseCrew('crewToChoose', 1, 0)">
+                <p class="crewName" id="Caelius">Caelius</p>
+                <P>“Caelius” isn’t his real name, it’s just what he goes by. Considering what we’ve had to deal with the others, Caelius is your typical thief. He started out as a con man and slowly branched out as his network increased. He found that people easily trust a refined style so expect him to act high-class both on and off heists.  He’s quite skilled at social engineering so you can rely on him to keep the CEO entertained with fake business proposals as the rest of the crew sneak into the office.</P>
+                <P>Caelius likes to keep his work and private life separate, but if you are as high-class as he is then you might bump into him at a gala or concerto or other prestigious event. Once that happens he’ll become more friendly, and if you can maintain a measure of refinement both on and off the job, he’ll gladly follow you as a leader. You’ll always have doubts in your mind about if he’s a true friend, though.</P>
+                <P>Skills: <b>Silver Tongue, Pickpocketing, Know-it-All</b> (Paintings)</P>
+            </td>
+            <td class="notCrew" onclick="chooseCrew('crewToChoose', 1, 1)">
+                <p class="crewName" id="Andrea">Andrea</p>
+                <p>Andrea is a planner and schemer, and she’s far better than it that you could ever be. She actually used to work freelance as a contact for any crew that needed her services, but now she’s decided that she wants to lead her own group. If you choose her, she won’t be coming with you on the night of the heist but will instead act as an operator, feeding you a plan through an earpiece, adapting as complications occur. As you might expect for a chess champion who was closeted for her entire youth, her social skills are stunted. She uses a distant, expressionless tone and expects the crew to do what she says – because why would you not? She’s clearly the best tactician here.</p>
+                <p>It’ll be difficult for Andrea to see you as a “leader” because she equates that with her own role. You’ll need to explain to her the differences but she’s not very social without a board in front of her. She’s been wanting to learn how to play Go recently; if you can find time in your private life to spend entire afternoons in mostly-silence playing Go, she’ll warm up to you. You’ll also need to trust her directions implicitly while on a heist.</p>
+                <p>Skills: <b>Tactician</b> (Grandmaster)</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="notCrew" onclick="chooseCrew('crewToChoose', 2, 0)">
+                <p class="crewName" id="Terri">Terri</p>
+                <p>It’s probably written somewhere in the rules of life that if you work with explosives, you’re a complete goof. This is Terri and she’s really fond of painting faces on her bombs. She wasn’t always like this though; once upon a time she was just a college girl who wanted to be a doctor. Turns out that med school is <i>incredibly</i> stressful though, and she ended up blowing her top (ha!) and dropping out. Now she spends most of her time blowing things up on ten acres of now-badlands she owns somewhere outside Nice. She’s incredibly friendly and can chat with anyone for hours, but her go-to stress buster is explosions, explosions, and more explosions, so don’t get her angry.</p>
+                <p>Terri will want little to do with your crew if no steps in your primary plan state the phrase “then blow it up”. You might be able to placate her if the Plan B involves such terms. If you blow things up during your heist, spend some time with her at her ranch blowing junk up, and maybe let her patch you up if you get hurt (she’s awfully sensitive that she didn’t get her degree), she’ll definitely follow you as the leader.</p>
+                <p>Skills: <b>Explosives Expert, Medic</b></p>
+            </td>
+            <td class="notCrew" onclick="chooseCrew('crewToChoose', 2, 1)">
+                <p class="crewName" id="Nikolaus">Nikolaus</p>
+                <p>Don’t call him Nick. He hates that. He started out as a soldier and realized pretty quickly that it wouldn’t pay for his car modeling habit, so he became a mercenary instead. Now he’s getting into the heist business in hopes that he can join up with a team going after some sweet wheels. Nikolaus is one of the best drivers you’ll ever meet. Give him an afternoon in the city the heist is in and he’ll have at least four escape routes planned. Off the clock he spends the majority of his time modding, racing, or fixing cars. Considering how much time he spends on his hobby, he’s not much of a conversationalist about any other topic, so he might just drink his lager quietly during any crew party.</p>
+                <p>If one of your targets is cars, Nikolaus will like you almost immediately. If you happen to be an auto nut yourself (or have Know-it-All: Cars), you’ll be able to build a strong rapport incredibly quickly. Otherwise he’ll look up to you as a leader after a few heists if you use his car as the preferred getaway method and <i>not vomit all over his seats while he’s making crazy turns, thank you very much.</i></p>
+                <p>Skills: <b>Driver, Firearms Expert, Know-it-All</b> (Cars)</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="notCrew" onclick="chooseCrew('crewToChoose', 3, 0)">
+                <p class="crewName" id="Mask">Mask</p>
+                <p>Normally I’d be giving you another complaint right now about another nutjob on the list but, uh, this one’s cuckoo for a completely different reason, and I don’t want my feathers plucked. Yeah, he’s a ninja – or at least, he thinks he is? His default answer to a problem is to “efficiently eliminate” it, so be careful. He won’t consider using any weapons other than his sword, his throwing stars, or his fists, so be ready for that. I have no idea what he uses his money for, because he always goes to a heist looking the same way with the same weapons. He doesn’t talk much, but seems to have a soft spot for oranges, strangely enough. During crew meetings he’ll eat two or three of them.</p>
+                <p>Mask doesn’t seem to want to build friendship with you – or anyone else, for that matter. He’ll listen to your commands if what you say is reasonable and doesn’t go against whatever plans he has set in his mind. If you can show him on your heists that you can also “efficiently eliminate” the problems in your way with stealth and skill, he’ll consider you the leader and listen to all of your commands.</p>
+                <p>Skills: <b>Stealth, CQC Expertise, Cat Burglar</b></p>
+            </td>
+            <td class="notCrew" onclick="chooseCrew('crewToChoose', 3, 1)">
+                <p class="crewName" id="Rasha">Rasha</p>
+                <p>Rasha is a sweet little thing that would be barely old enough to vote, if she was a citizen. She got separated from her parents when they immigrated here eight years ago and was picked up by some unsavory types. They didn’t do anything <i>too</i> harsh to her (there’s a reason she wears the bow-collar) but they did expect her to turn a profit as a pickpocket while they were sheltering her. Listen, if you picked her you’d actually be doing both me and her a favor. She decided on her birthday this year that she’d run away from her conditions and try to make life elsewhere. Now she’s lost in a country she can barely call home with nowhere to go.</p>
+                <p>Rasha will treat you like a leader if you can set her up with a place, whether it’s her own flat or a room in yours. She’ll end up using her own cut of the heist money to first formally buy her freedom from the gang and then second to find her parents, so she’ll be in that situation for a while. I know she’s not as skilled as these other crew members, so in return for giving her “gainful” employment I’ll give you one of my feathers. You can use it to bestow her (and her only) any one skills from the skill list you choose from.</p>
+                <p>Skills: <b>Pickpocketing, Any 1 of Your Skills</b></p>
+            </td>
+        </tr>
+    </table>
+    <p>
+        Hmm? How did Rasha help me? It’s a bit embarrassing to mention, but she shooed away a tabby that had me cornered. Anyway, if your choice of crew members makes you want to go back and adjust your skills, feel free. Other than your Archetype, the power doesn’t actually kick in until I say so.
+    </p>
     </div>
     </body>
     

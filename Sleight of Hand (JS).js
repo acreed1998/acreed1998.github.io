@@ -1,17 +1,17 @@
 // Create Objects that contain archtype parameters //
-var masterThief = {
+const masterThief = {
     skillPoints: 9,
     crewPoints: 0,
     contactPoints: 5
 };
 
-var modernItalian = {
+const modernItalian = {
     skillPoints: 4,
     crewPoints: 2,
     contactPoints: 3
 };
 
-var shockAndAwe = {
+const shockAndAwe = {
     skillPoints: 2,
     crewPoints: 3,
     contactPoints: 3
@@ -33,6 +33,8 @@ var skillCounter;
 var skillCellLog = [];
 var skillWellConnectedLogCrew = 0;
 var skillWellConnectedLogCont = 0;
+
+// Functions to acquire the initial values for whatever class the user picks //
 function getSkillPoints(row) {
     for (var i = 0; i < row.cells.length; i++) {
         if(row.cells[i].className == "skillPointsCollumn") {
@@ -60,7 +62,9 @@ function getContactPoints(row) {
     return 0;
 }
 
+// Function for picking the archtype // 
 function pickArchetype(tableName, rowNum, method) {
+    // Get initial skill, crew, and contact points. THey should all be 0! //
     var skillPointsString = document.getElementById("skills");
     var skillPoints = parseInt(skillPointsString.innerHTML);
 
@@ -70,11 +74,15 @@ function pickArchetype(tableName, rowNum, method) {
     var contactPointsString = document.getElementById("contacts");
     var contactPoints = parseInt(contactPointsString.innerHTML);
 
+    // options is meant to give value to the Archetype table rows //
     var options = document.getElementById(tableName).getElementsByTagName("tr");
+
+    // set skill, crew, and contact PointsGiven respectively to the values found in the respective row //
     var skillPointsGiven = getSkillPoints(options[rowNum]);
     var crewPointsGiven = getCrewPoints(options[rowNum]);
     var contactPointsGiven = getContactPoints(options[rowNum]);
 
+    // This seems like a bit of redundant code but set the skill, crew, and contact 
     skillPoints = skillPointsGiven;
     crewPoints = crewPointsGiven;
     contactPoints = contactPointsGiven;
@@ -83,6 +91,7 @@ function pickArchetype(tableName, rowNum, method) {
     crewPointsString.innerHTML = crewPoints.toString(); //update counter
     contactPointsString.innerHTML = contactPoints.toString(); //update counter
 
+    // Free Skills and Forced Targets
     if (rowNum == 1) {
         chosenArchetype = "Master Thief";
         forcedSaaTargets('targets', 1, 0);
@@ -101,6 +110,7 @@ function pickArchetype(tableName, rowNum, method) {
     }
 }
 
+// Sets forced targets for Shock and Awe Archetype //
 function forcedSaaTargets(tableName, rowNum, cellNum) {
     var cell = document.getElementById(tableName).getElementsByTagName("tr")[rowNum].getElementsByTagName("td")[cellNum];
 
@@ -112,11 +122,14 @@ function forcedSaaTargets(tableName, rowNum, cellNum) {
     }
 }
 
+// Sets free Skills for the Archetypes //
 function forcedMtSkills(tableName, rowNum, cellNum) {
     var cell = document.getElementById(tableName).getElementsByTagName("tr")[rowNum].getElementsByTagName("td")[cellNum];
     var clearcell;
     let i;
     let j;
+
+    // Sets all skill cells to noSkill so we start fresh every time there is an Archetype change //
     if (chosenArchetype == "Master Thief") {
         for (i = 0; i < 5; i++) {
             for (j = 0; j < 3; j++) {
@@ -159,27 +172,39 @@ function forcedSaaSkills(tableName, rowNum, cellNum) {
     }
 }
 
+// function for choosing your targets //
 function chooseTarget(tableName, rowNum, cellNum) {
+    // the if statement makes sure that an archetype is actually picked //
+    // if there is no archetype is picked than the rest of the function will not run //
     if (chosenArchetype == "Master Thief" || chosenArchetype == "Modern Italian" || chosenArchetype == "Shock and Awe") {
         console.log('All good!');
     } else {
         return ('Pick an Archetype');
     }
+
+    // every time we access the function we count how many Targets have been picked by accessing the //
+    // countTakenTargets function //
     targetCounter = countTakenTargets(tableName);
+
+
     var cell = document.getElementById(tableName).getElementsByTagName("tr")[rowNum].getElementsByTagName("td")[cellNum];
     var justChanged = false;
     var is_takenI;
     if (targetCounter < 4 || targetCounter - 1 == 3) {
         if (targetCounter + 1 == 5) {
             for (is_takenI = 0; is_takenI < targetCellLog.length; is_takenI++) {
-                targetCellLog[is_takenI].className = "notATarget";
+                if (targetCellLog[is_takenI] === cell) {
+                    targetCellLog[is_takenI].className = "notATarget";
+                    targetCellLog = targetCellLog.splice(is_takenI, 1);
+                }
             }
-            targetCellLog = [];
+            
             justChanged = true;
         }
         if (cell.className != "aTarget" && justChanged == false && cell.className != "saaTarget") {
             cell.className = "aTarget";
             targetCellLog.push(cell);
+            console.log(targetCellLog);
             return 1;
         } else if (cell.className != "notATarget" && cell.className != "saaTarget") {
             cell.className = "notATarget"
@@ -227,19 +252,24 @@ function chooseSkill(tableName, rowNum, cellNum) {
     if (skillCounter < chosenSkills + 2) {
         if (skillCounter + 1 == chosenSkills + 2) {
             for (is_takenI = 0; is_takenI < skillCellLog.length; is_takenI++) {
-                skillCellLog[is_takenI].className = "noSkill";
+                if (skillCellLog[is_takenI] === cell) {
+                    skillCellLog[is_takenI].className = "noSkill";
+                    skillCellLog = skillCellLog.splice(is_takenI, 1);
+                    skillPoints++;
+                    skillPointsString.innerHTML = skillPoints.toString();
+                }
             }
-            skillCellLog = [];
             justChanged = true;
+            
             takeExtraCrew(true);
             takeExtraContacts(true);
-            skillPoints = chosenSkills;
-            skillPointsString.innerHTML = skillPoints.toString();
         }
         if (cell.className != "gotSkills" && justChanged == false && cell.className != "freeSkill") {
             cell.className = "gotSkills";
             skillCellLog.push(cell);
-            skillPoints--;
+            if (skillPoints - 1 > -1) {
+                skillPoints--;
+            }
             skillPointsString.innerHTML = skillPoints.toString();
             return 1;
         } else if (cell.className != "noSkill" && cell.className != "freeSkill") {
