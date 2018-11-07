@@ -34,6 +34,12 @@ var skillCellLog = [];
 var skillWellConnectedLogCrew = 0;
 var skillWellConnectedLogCont = 0;
 
+// Variables for crew modification and storage
+var changingCrewCounter;
+var chosenCrew;
+var crewCounter;
+var crewCellLog = [];
+
 // Functions to acquire the initial values for whatever class the user picks //
 function getSkillPoints(row) {
     for (var i = 0; i < row.cells.length; i++) {
@@ -353,7 +359,7 @@ function takeExtraCrew(clearExtraFromSkills) {
 
     var cell = document.getElementById("wellConnectedCell");
 
-    if (takenExtraCrew - 1 < 0) {
+    if (takenExtraCrew - 1 < 0 || crewPoints === 0) {
         return "TOO LOW!";
     }
 
@@ -483,6 +489,77 @@ function takeExtraContacts(clearExtraFromSkills) {
     skillPointsString.innerHTML = skillPoints.toString();
     contactPointsString.innerHTML = contactPoints.toString();
     takenExtraContString.innerHTML = takenExtraCont.toString();
+}
+
+function chooseCrew(tableName, rowNum, cellNum) {
+    if (chosenArchetype == "Master Thief" || chosenArchetype == "Modern Italian" || chosenArchetype == "Shock and Awe") {
+        if (chosenArchetype == "Master Thief") {
+            chosenCrew = masterThief.crewPoints;
+        } else if (chosenArchetype == "Modern Italian") {
+            chosenCrew = modernItalian.crewPoints;
+        } else {
+            chosenCrew = shockAndAwe.crewPoints;
+        }
+    } else {
+        return ('Pick an Archetype');
+    }
+    var crewPointsString = document.getElementById("crew");
+    var crewPoints = parseInt(crewPointsString.innerHTML);
+    crewCounter = countTakenCrew(tableName);
+    var cell = document.getElementById(tableName).getElementsByTagName("tr")[rowNum].getElementsByTagName("td")[cellNum];
+    var justChanged = false;
+    var is_takenI;
+    if (crewPoints >= 0) {
+        if (crewPoints === 0) {
+            for (is_takenI = 0; is_takenI < crewCellLog.length; is_takenI++) {
+                if (crewCellLog[is_takenI] === cell) {
+                    crewCellLog[is_takenI].className = "notCrew";
+                    crewCellLog.splice(is_takenI, 1);
+                    crewPoints++;
+                    crewPointsString.innerHTML = crewPoints.toString();
+                }
+            }
+            justChanged = true;
+            return "...";
+        }
+        if (cell.className != "partOfTheCrew" && justChanged == false) {
+            cell.className = "partOfTheCrew";
+            crewCellLog.push(cell);
+            if (crewPoints - 1 > -1) {
+                crewPoints--;
+            }
+            crewPointsString.innerHTML = crewPoints.toString();
+            return 1;
+        } else if (cell.className != "notCrew") {
+            crewPoints++;
+            crewPointsString.innerHTML = crewPoints.toString();
+            for (is_takenI = 0; is_takenI < crewCellLog.length; is_takenI++) {
+                if (crewCellLog[is_takenI] === cell) {
+                    crewCellLog.splice(is_takenI, 1);
+                }
+            }
+            cell.className = "notCrew"
+            return 0;
+        } else {
+            return 0
+        }
+    }
+}
+
+function countTakenCrew(tableName) {
+    var num = 1;
+    var i;
+    var j;
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 2; j++) {
+            var takenCell = document.getElementById(tableName).getElementsByTagName("tr")[i].getElementsByTagName("td")[j];
+            if (takenCell.className == "partOfTheCrew") {
+                num++;
+            }
+        }
+    }
+    return num;
+
 }
 
 function slidePanel(id) {

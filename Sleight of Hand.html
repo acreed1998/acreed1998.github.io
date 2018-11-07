@@ -33,7 +33,7 @@
     <p class="narration">
     How do you go about getting what you want? Choose <b>one</b>. Note that you can’t change this later in life, and we can’t proceed with the other choices until you pick. Choose carefully!
     </p>
-    <table id="archetypeChoices">
+    <table class="archetypeTable" id="archetypeChoices">
         <tr>
             <td class="table_header">Archetype Name</td>
             <td class="table_header">Description</td>
@@ -41,6 +41,7 @@
             <td class="table_header">Crew</td>
             <td class="table_header">Contacts</td>
             <td class="table_header">Free Skill</td>
+            <td class="table_header">Purchase</td>
         </tr>
         <tr>
             <td class="archetypeName">
@@ -256,7 +257,7 @@
             <td class="noSkill" id="wellConnectedCell">
                 <p class="skillTitle" id="wellConnected"><b>Well-Connected</b></p>
                 <p>Maybe you didn’t have as many skills as everyone else, but that’s because you know who to go to for what. Take either an additional crew member or two contacts.</p>
-                <table>
+                <table class="tableInTable">
                     <tr>
                         <td><p id="giveGetIDCrew">Crew</p></td>
                         <td><button type="button" onclick="giveExtraCrew()">+</button></td>

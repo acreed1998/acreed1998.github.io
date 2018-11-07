@@ -6,12 +6,29 @@
 	display: block;
 }
 
+.archetypeTable, td, th {
+	border: solid 1px black;
+	text-align: center;
+} 
+
+.crewName {
+	font-weight: bold;
+	font-size: 135%
+}
+
+.tableInTable {
+	text-align: center;
+	padding-left: 25%;
+}
+
 .aTarget {
 	background-color: #99dd55;
+	border: 1px solid black;
 }
 
 .notATarget {
 	background-color: #FFFFFF;
+	border: 1px solid black;
 }
 
 .gotSkills {
@@ -34,6 +51,12 @@
 }
 
 .notCrew {
+	background-color: #FFFFFF;
+	border: 1px solid black;
+}
+
+.partOfTheCrew {
+	background-color: #99dd55;
 	border: 1px solid black;
 }
 
