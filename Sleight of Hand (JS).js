@@ -40,6 +40,12 @@ var chosenCrew;
 var crewCounter;
 var crewCellLog = [];
 
+// Variables for contact modification and storage
+var changingContactCounter;
+var chosenContacts;
+var contactCounter;
+var contactCellLog = [];
+
 // Functions to acquire the initial values for whatever class the user picks //
 function getSkillPoints(row) {
     for (var i = 0; i < row.cells.length; i++) {
@@ -452,7 +458,7 @@ function takeExtraContacts(clearExtraFromSkills) {
 
     var cell = document.getElementById("wellConnectedCell");
 
-    if (takenExtraCont - 1 < 0) {
+    if (takenExtraCont - 1 < 0 || contactPoints === 0) {
         return "TOO LOW!";
     }
 
@@ -554,6 +560,77 @@ function countTakenCrew(tableName) {
         for (j = 0; j < 2; j++) {
             var takenCell = document.getElementById(tableName).getElementsByTagName("tr")[i].getElementsByTagName("td")[j];
             if (takenCell.className == "partOfTheCrew") {
+                num++;
+            }
+        }
+    }
+    return num;
+
+}
+
+function chooseContact(tableName, rowNum, cellNum) {
+    if (chosenArchetype == "Master Thief" || chosenArchetype == "Modern Italian" || chosenArchetype == "Shock and Awe") {
+        if (chosenArchetype == "Master Thief") {
+            chosenContacts = masterThief.contactPoints;
+        } else if (chosenArchetype == "Modern Italian") {
+            chosenContacts = modernItalian.contactPoints;
+        } else {
+            chosenContacts = shockAndAwe.contactPoints;
+        }
+    } else {
+        return ('Pick an Archetype');
+    }
+    var contactPointsString = document.getElementById("contacts");
+    var contactPoints = parseInt(contactPointsString.innerHTML);
+    contactCounter = countTakenContacts(tableName);
+    var cell = document.getElementById(tableName).getElementsByTagName("tr")[rowNum].getElementsByTagName("td")[cellNum];
+    var justChanged = false;
+    var is_takenI;
+    if (contactPoints >= 0) {
+        if (contactPoints === 0) {
+            for (is_takenI = 0; is_takenI < contactCellLog.length; is_takenI++) {
+                if (contactCellLog[is_takenI] === cell) {
+                    contactCellLog[is_takenI].className = "noContact";
+                    contactCellLog.splice(is_takenI, 1);
+                    contactPoints++;
+                    contactPointsString.innerHTML = contactPoints.toString();
+                }
+            }
+            justChanged = true;
+            return "...";
+        }
+        if (cell.className != "closeContact" && justChanged == false) {
+            cell.className = "closeContact";
+            contactCellLog.push(cell);
+            if (contactPoints - 1 > -1) {
+                contactPoints--;
+            }
+            contactPointsString.innerHTML = contactPoints.toString();
+            return 1;
+        } else if (cell.className != "noContact") {
+            contactPoints++;
+            contactPointsString.innerHTML = contactPoints.toString();
+            for (is_takenI = 0; is_takenI < contactCellLog.length; is_takenI++) {
+                if (contactCellLog[is_takenI] === cell) {
+                    contactCellLog.splice(is_takenI, 1);
+                }
+            }
+            cell.className = "noContact"
+            return 0;
+        } else {
+            return 0
+        }
+    }
+}
+
+function countTakenContacts(tableName) {
+    var num = 1;
+    var i;
+    var j;
+    for (i = 0; i < 2; i++) {
+        for (j = 0; j < 5; j++) {
+            var takenCell = document.getElementById(tableName).getElementsByTagName("tr")[i].getElementsByTagName("td")[j];
+            if (takenCell.className == "closeContact") {
                 num++;
             }
         }

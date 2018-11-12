@@ -60,6 +60,16 @@
 	border: 1px solid black;
 }
 
+.noContact {
+	background-color: #FFFFFF;
+	border: 1px solid black;
+}
+
+.closeContact {
+	background-color: #99dd55;
+	border: 1px solid black;
+}
+
 #skills {
 	position: fixed;
 	color: red;
