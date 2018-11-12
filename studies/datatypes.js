@@ -53,3 +53,21 @@ function thisIsAFunction() {};
 
 // Copy by reference - when assigning or passing, complex data-types are //
 // passed by reference. //
+
+var notANumber = 'NaN';
+var nullEx = null;
+var partyTime = undefined;
+console.log(notANumber++);
+console.log(partyTime); // logs undefined
+console.log(nullEx);
+
+// infinty and -infinity
+console.log(Infinity          ); /* Infinity */  
+console.log(Infinity + 1      ); /* Infinity */  
+console.log(Math.pow(10, 1000)); /* Infinity */  
+console.log(Math.log(0)       ); /* -Infinity */  
+console.log(1 / Infinity      ); /* 0 */
+
+
+
+

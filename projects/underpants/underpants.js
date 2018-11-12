@@ -475,7 +475,7 @@ _.reduce = function (array, test, seed) {
         }
     }
     return previous;
-}
+};
 
 /** _.extend()
 * Arguments:

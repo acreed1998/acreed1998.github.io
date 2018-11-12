@@ -49,7 +49,7 @@ birthDate = 24;
 // Not hoiseted to their code block //
 
 // Limits the variable's scope to the block it's declared in. //
-
+var letThemEatCake = undefined;
 console.log(letThemEatCake);
 
 if (birthDate === 02241998) {

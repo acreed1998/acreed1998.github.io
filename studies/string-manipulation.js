@@ -15,3 +15,15 @@ var string1 = 'Or this';
 
 console.log(string0[0]); // Prints 'L' to the console.
 
+// Can change case
+var string2 = "Hmmmmm";
+console.log(string2.toUpperCase()); //HMMMMM
+console.log(string2.toLowerCase()); //hmmmmm
+
+// Can change string to an array
+
+console.log(string2.split("")); //['h', 'm', 'm', 'm', 'm']
+
+// Can fuse strings (cocatenate)
+
+console.log(string0 + " " + string1); // "Like this Or this"

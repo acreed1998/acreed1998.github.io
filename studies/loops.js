@@ -17,6 +17,11 @@ for (i = 0; i <= 10; i++) {
     console.log(i);
 }
 
+var j;
+var arr = [1,2,3,4,5,6];
+for (j = arr.length; j >= 0; j--) {
+    console.log(arr[j]);
+}
 // THE FOR-IN LOOP //
 // DESIGNED FOR GOING OVER OBJECTS //
 
@@ -31,4 +36,10 @@ var count = -1;
 while (count < 10) {
     console.log(count);
     count++;
+}
+
+var count = 10;
+while (count > 0) {
+    console.log(count);
+    count--;
 }

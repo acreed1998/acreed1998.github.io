@@ -59,3 +59,20 @@ console.log(2 - 1);
 console.log(2 * 3);
 console.log(4 / 2);
 console.log(4 % 2);
+
+// UNARY OPERATORS //
+//  This is a set of operators that only take one operand
+
+let i = 0;
+i++;
+console.log(i);
+console.log(--i);
+console.log(!true);
+console.log(i--);
+++i;
+console.log(i);
+
+// TERNARY OPERATORS //
+// Shorthand if/else statements.
+
+i === 10 ? console.log(false) : console.log(true);

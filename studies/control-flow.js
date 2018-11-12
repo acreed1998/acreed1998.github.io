@@ -11,15 +11,31 @@
 // The most basic statement is a block statement that is used to group statements. //
 // The block is delimited by a pair of curly brackets: //
 
-{
-  statement_1;
-  statement_2;
-  statement_n;
-}
-
 // Block statements are commonly used with control flow statements //
 // (e.g. if, for, while, switch). //
 
-while (x < 10) {
-  x++;
+let x = 10;
+while (x > 0) {
+  x--;
 }
+
+if (x === 0) {
+  console.log('BOTH STATEMENTS WORKED');
+}
+
+for (let i = 10; i > x; i--) {
+  console.log('The For Loop is Running');
+}
+
+let exNum = 0;
+
+// If/ElseIf/Else Example
+if (exNum > 0) {
+  console.log('good');
+} else if (exNum < 0) {
+  console.log('bad');
+} else {
+  console.log('neither');
+}
+
+
