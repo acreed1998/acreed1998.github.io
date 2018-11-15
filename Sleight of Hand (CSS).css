@@ -70,7 +70,17 @@
 	border: 1px solid black;
 }
 
-#skills {
+.unequipped {
+	background-color: #FFFFFF;
+	border: 1px solid black;
+}
+
+.equipped {
+	background-color: #99dd55;
+	border: 1px solid black;
+}
+
+#skillsPoints {
 	position: fixed;
 	color: red;
 	right: 220px;
@@ -78,7 +88,7 @@
 	font-weight: bold;
 }
 
-#crew {
+#crewPoints {
 	position: fixed;
 	color: red;
 	right: 120px;
@@ -86,7 +96,7 @@
 	font-weight: bold;
 }
 
-#contacts {
+#contactsPoints {
 	position: fixed;
 	color: red;
 	right: 20px;
