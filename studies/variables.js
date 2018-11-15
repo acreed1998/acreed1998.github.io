@@ -40,7 +40,6 @@ console.log(myVariable);
 
 const birthDate = 02241998;
 console.log(birthDate);
-birthDate = 24;
 
 // ALL CAPS are recommended for constant names //
 
