@@ -266,14 +266,13 @@ function chooseContact(contactID) {
     var contactPointsString = document.getElementById("contactsPoints");
     var contactPoints = parseInt(contactPointsString.innerHTML);
 
-    if (cell.id === "informationVendorUnderworld" && contactPoints !== 0) {
-        if (cell.className === "noContact") {
+    if (cell.id === "informationVendorUnderworld") {
+        if (cell.className === "noContact" && contactPoints !== 0) {
             cell.className = "closeContact";
             currentContacts.push(cell);
             contactPoints += 2;
             userPoints.contactPoints += 3;
         } else if (cell.className === "closeContact" && contactPoints > 2) {
-            cell.className = "noContact";
             for (i = 0; i < currentContacts.length; i++) {
                 if (currentContacts[i].id === cell.id) {
                     currentContacts.splice(i, 1);
@@ -289,8 +288,8 @@ function chooseContact(contactID) {
         return "Done!";
     }
 
-    if (cell.id === "contactCrew" && contactPoints !== 0) {
-        if (cell.className === "noContact") {
+    if (cell.id === "contactCrew") {
+        if (cell.className === "noContact"  && contactPoints > 1) {
             cell.className = "closeContact";
             currentContacts.push(cell);
             contactPoints -= 2;
