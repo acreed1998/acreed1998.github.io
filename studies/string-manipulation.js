@@ -27,3 +27,12 @@ console.log(string2.split("")); //['h', 'm', 'm', 'm', 'm']
 // Can fuse strings (cocatenate)
 
 console.log(string0 + " " + string1); // "Like this Or this"
+
+// Can get string length
+
+console.log(string0.length) // logs 9
+
+// Can replace parts of strings
+
+string0 = string0.replace('Like','Mike');
+console.log(string0);

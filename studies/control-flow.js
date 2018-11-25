@@ -27,6 +27,36 @@ for (let i = 10; i > x; i--) {
   console.log('The For Loop is Running');
 }
 
+
+// Switch Statement //
+// Convienient When:
+// 1. You are comparing multiple possible conditions of an expression and the 
+// 1. expression itself is non-trivial. //
+// 2. You have multiple values that may require the same code. //
+// 3. You have some values that will require essentially all of another value's //
+// 3. execution, plus only a few statements. //
+
+let z = 5;
+switch (z) {
+  case 1:
+    console.log('No');
+    break;
+  case 2:
+    console.log('No2');
+    break;
+  case 3:
+    console.log('No3');
+    break;
+  case 4:
+    console.log('No4');
+    break;
+  default:
+    console.log("You'll get to 5 eventually");
+    break;
+};
+
+
+
 let exNum = 0;
 
 // If/ElseIf/Else Example
@@ -37,5 +67,4 @@ if (exNum > 0) {
 } else {
   console.log('neither');
 }
-
 

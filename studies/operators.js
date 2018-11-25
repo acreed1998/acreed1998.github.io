@@ -54,11 +54,16 @@ console.log(!!1);
 
 // ARITHMETIC OPERATORS //
 
+var a = 10;
 console.log(1 + 1);
 console.log(2 - 1);
 console.log(2 * 3);
 console.log(4 / 2);
 console.log(4 % 2);
+console.log(a += a); // a = 20
+console.log(a -= 19); // a = 1
+console.log(a *= 55); // a = 55
+console.log(a /= 5); // a = 11
 
 // UNARY OPERATORS //
 //  This is a set of operators that only take one operand
