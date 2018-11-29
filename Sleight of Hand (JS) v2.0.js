@@ -137,7 +137,7 @@ function chooseSkill(skillName, free, give, crew, contacts) {
     
     if (cell.id === "wellConnectedCell") {
         if (give === true) {
-            if (crew === true && contacts === false && takenExtraCrew < 1 && skillPoints !== 0) {
+            if (crew === true && contacts === false && takenExtraCrew < 1 && skillPoints !== 0 && takenExtraCont === 0) {
                 console.log(1);
                 takenExtraCrew++;
                 crewPoints++;
@@ -145,7 +145,7 @@ function chooseSkill(skillName, free, give, crew, contacts) {
                 userPoints.crewPoints++;
                 cell.className = "gotSkills";
                 currentSkills.push(cell);
-            } else if (contacts === true && crew === false && takenExtraCont < 2 && skillPoints !== 0) {
+            } else if (contacts === true && crew === false && takenExtraCont < 2 && skillPoints !== 0 && takenExtraCrew === 0) {
                 console.log(2);
                 takenExtraCont += 2;
                 contactPoints += 2;
